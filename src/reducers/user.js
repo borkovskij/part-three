@@ -6,7 +6,7 @@ import {
 	UPDATE_USER_FIELD,
 	UPDATE_USER_PENDING,
 	UPDATE_USER_SUCCESS,
-} from '../actions/user';
+} from '../actions';
 
 const initialState = {
 	isLoading: false,
