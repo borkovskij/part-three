@@ -3,7 +3,7 @@ import P from 'prop-types';
 
 import { Container, ChangesContainer, Title, Arrow, Text } from './styled';
 import Button from '../Button';
-import LoadingScreen from '../LoadingScreen';
+import Error from '../Error';
 import { userType } from '../../propTypes';
 
 class UserChanges extends React.Component {
@@ -45,7 +45,7 @@ class UserChanges extends React.Component {
 	render() {
 		const { updatedUser, navigateToUsersList, user } = this.props;
 		if (user === null) {
-			return <LoadingScreen />;
+			return <Error />;
 		}
 		return (
 			<Container>
