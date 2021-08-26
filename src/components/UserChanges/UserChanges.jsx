@@ -3,6 +3,7 @@ import P from 'prop-types';
 
 import { Container, ChangesContainer, Title, Arrow, Text } from './styled';
 import Button from '../Button';
+import LoadingScreen from '../LoadingScreen';
 import { userType } from '../../propTypes';
 
 class UserChanges extends React.Component {
@@ -14,12 +15,17 @@ class UserChanges extends React.Component {
 			updatedAt: P.string.isRequired,
 		}),
 		navigateToUsersList: P.func,
+		clearData: P.func.isRequired,
 	};
 
 	componentDidMount() {
 		if (this.props.user === null) {
 			this.props.navigateToUsersList();
 		}
+	}
+
+	componentWillUnmount() {
+		this.props.clearData();
 	}
 
 	renderChange = () => {
@@ -37,7 +43,10 @@ class UserChanges extends React.Component {
 	};
 
 	render() {
-		const { updatedUser, navigateToUsersList } = this.props;
+		const { updatedUser, navigateToUsersList, user } = this.props;
+		if (user === null) {
+			return <LoadingScreen />;
+		}
 		return (
 			<Container>
 				<Title>Updates: </Title>

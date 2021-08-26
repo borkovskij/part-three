@@ -6,12 +6,13 @@ import {
 	UPDATE_USER_FIELD,
 	UPDATE_USER_PENDING,
 	UPDATE_USER_SUCCESS,
+	CLEAR_USER_REDUCER,
 } from '../actions';
 
 const initialState = {
 	isLoading: false,
 	user: null,
-	updatedUser: {},
+	updatedUser: null,
 	error: false,
 	updates: {
 		first_name: '',
@@ -62,6 +63,9 @@ const user = (state = initialState, { type, payload }) => {
 				isLoading: false,
 				error: true,
 			};
+		case CLEAR_USER_REDUCER: {
+			return initialState;
+		}
 		default:
 			return state;
 	}

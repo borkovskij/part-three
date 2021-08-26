@@ -15,15 +15,23 @@ class UserEditConfirmation extends React.Component {
 		}),
 		navigateToUsersList: P.func,
 		error: P.bool.isRequired,
+		clearData: P.func.isRequired,
 	};
 	render() {
-		const { navigateToUsersList, user, updatedUser, error } = this.props;
+		const { navigateToUsersList, user, updatedUser, error, clearData } = this.props;
 
 		if (error) {
 			return <Error />;
 		}
 
-		return <UserChanges user={user} updatedUser={updatedUser} navigateToUsersList={navigateToUsersList} />;
+		return (
+			<UserChanges
+				user={user}
+				updatedUser={updatedUser}
+				navigateToUsersList={navigateToUsersList}
+				clearData={clearData}
+			/>
+		);
 	}
 }
 

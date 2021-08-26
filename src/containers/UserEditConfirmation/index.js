@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import UserEditConfirmation from './UserEditConfirmation';
 
 import { navigateToUsersList } from '../../actionCreators/userEditConfirmation';
+import { clearUserReducer } from '../../actionCreators/user';
 
 const mapStateToProps = (state) => ({
 	user: state.user.user,
@@ -12,6 +13,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
 	navigateToUsersList: () => dispatch(navigateToUsersList()),
+	clearData: () => dispatch(clearUserReducer()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserEditConfirmation);

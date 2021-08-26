@@ -7,6 +7,7 @@ import {
 	UPDATE_USER_PENDING,
 	UPDATE_USER_SUCCESS,
 	UPDATE_USER_FIELD,
+	CLEAR_USER_REDUCER,
 } from '../actions';
 
 export const fetchUserData = (userId) => ({
@@ -45,4 +46,8 @@ export const changePage = (path) => ({
 export const updateUserField = (payload) => ({
 	type: UPDATE_USER_FIELD,
 	payload,
+});
+
+export const clearUserReducer = () => ({
+	type: CLEAR_USER_REDUCER,
 });
